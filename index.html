@@ -317,7 +317,7 @@
       <a href="#features">Решения</a>
       <a href="#safety">Безопасность</a>
       <a href="#roadmap">Дорожная карта</a>
-      <button class="btn-outline" id="waitlistBtn">Жду запуска</button>
+      <button class="btn-outline" id="waitlistBtn">✨ Telegram канал</button>
     </div>
   </div>
 
@@ -327,7 +327,7 @@
       <div class="badge">❝ внутренний локус контроля ❞</div>
       <h1>Верни себе <span class="hero-accent">контроль</span> над своей любовью</h1>
       <p class="hero-desc">LuvGen — не просто знакомства. Мы ломаем выученную беспомощность, убираем бесконечный свайпинг и возвращаем глубину.</p>
-      <button class="btn-primary" id="heroCta">✨ Стать первым пользователем</button>
+      <button class="btn-primary" id="heroCta">✨ Присоединиться в Telegram →</button>
       <div class="hero-stats">
         <div class="stat">📉 -73% <span style="font-weight:400">выгорания</span></div>
         <div class="stat">🧠 5× <span style="font-weight:400">глубже диалоги</span></div>
@@ -487,7 +487,7 @@
   <div class="cta-section">
     <h2>Хватит пролистывать — начните выбирать осознанно</h2>
     <p style="max-width: 500px; margin: 0 auto; opacity: 0.9;">Присоединяйтесь к сообществу, где ценят глубину, безопасность и внутренний локус контроля.</p>
-    <button class="btn-primary" id="ctaBottom">📬 Получить приглашение</button>
+    <button class="btn-primary" id="ctaBottom">📬 Присоединиться в Telegram →</button>
     <p style="margin-top: 24px; font-size: 0.75rem;">Бесплатно. Без свайпинга. Только реальные намерения.</p>
   </div>
 
@@ -497,16 +497,22 @@
   </footer>
 </div>
 
-<!-- simple modal popup for demo (just interactive message) -->
 <script>
-  function showWaitlistMessage() {
-    alert("✨ Спасибо! Вы в списке ожидания LuvGen. Первым расскажем о запуске и дадим бесплатный доступ к трекеру проактивности.");
+  // Функция для открытия Telegram-канала
+  function redirectToTelegram() {
+    window.open('https://t.me/Luvgen_dev', '_blank');
   }
-  document.getElementById('waitlistBtn')?.addEventListener('click', showWaitlistMessage);
-  document.getElementById('heroCta')?.addEventListener('click', showWaitlistMessage);
-  document.getElementById('ctaBottom')?.addEventListener('click', showWaitlistMessage);
+
+  // Назначаем функцию на все нужные кнопки
+  const telegramBtn = document.getElementById('waitlistBtn');
+  const heroBtn = document.getElementById('heroCta');
+  const ctaBottomBtn = document.getElementById('ctaBottom');
+
+  if (telegramBtn) telegramBtn.addEventListener('click', redirectToTelegram);
+  if (heroBtn) heroBtn.addEventListener('click', redirectToTelegram);
+  if (ctaBottomBtn) ctaBottomBtn.addEventListener('click', redirectToTelegram);
   
-  // добавим интерактивный hover кнопкам (просто эффект)
+  // Эффекты при наведении для кнопок
   const btns = document.querySelectorAll('.btn-primary, .btn-outline');
   btns.forEach(btn => {
     btn.addEventListener('mouseenter', () => {
