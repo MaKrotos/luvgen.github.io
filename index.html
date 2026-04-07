@@ -1,0 +1,525 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+  <title>LuvGen — верни себе контроль над своей любовью</title>
+  <!-- Google Fonts & smooth behavior -->
+  <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,300;14..32,400;14..32,500;14..32,600;14..32,700;14..32,800&display=swap" rel="stylesheet">
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Inter', sans-serif;
+      background: #fefaf6;
+      color: #1e1b1a;
+      line-height: 1.4;
+      scroll-behavior: smooth;
+    }
+
+    .container {
+      max-width: 1280px;
+      margin: 0 auto;
+      padding: 0 24px;
+    }
+
+    /* buttons & utils */
+    .btn-primary {
+      background: #1e2f2f;
+      color: white;
+      border: none;
+      padding: 12px 28px;
+      font-weight: 600;
+      font-size: 1rem;
+      border-radius: 40px;
+      cursor: pointer;
+      transition: all 0.2s ease;
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      box-shadow: 0 2px 6px rgba(0,0,0,0.05);
+    }
+    .btn-primary:hover {
+      background: #2b4343;
+      transform: translateY(-2px);
+      box-shadow: 0 12px 20px -12px rgba(30,47,47,0.3);
+    }
+    .btn-outline {
+      background: transparent;
+      border: 1.5px solid #1e2f2f;
+      color: #1e2f2f;
+      padding: 10px 24px;
+      font-weight: 600;
+      border-radius: 40px;
+      transition: all 0.2s;
+      cursor: pointer;
+    }
+    .btn-outline:hover {
+      background: #1e2f2f10;
+      border-color: #2b4343;
+    }
+    .badge {
+      background: #f0e7de;
+      padding: 6px 14px;
+      border-radius: 60px;
+      font-size: 0.8rem;
+      font-weight: 500;
+      color: #3a2c28;
+    }
+
+    /* header */
+    .navbar {
+      padding: 24px 0;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 16px;
+    }
+    .logo {
+      font-size: 1.8rem;
+      font-weight: 800;
+      letter-spacing: -0.02em;
+      background: linear-gradient(135deg, #1e2f2f 0%, #4f6e6e 100%);
+      background-clip: text;
+      -webkit-background-clip: text;
+      color: transparent;
+    }
+    .nav-links {
+      display: flex;
+      gap: 32px;
+      align-items: center;
+    }
+    .nav-links a {
+      text-decoration: none;
+      font-weight: 500;
+      color: #2d3a3a;
+    }
+
+    /* hero */
+    .hero {
+      padding: 60px 0 80px;
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      gap: 48px;
+    }
+    .hero-content {
+      flex: 1;
+    }
+    .hero-content h1 {
+      font-size: 3.4rem;
+      font-weight: 800;
+      line-height: 1.2;
+      letter-spacing: -0.02em;
+      margin-bottom: 20px;
+      color: #161312;
+    }
+    .hero-accent {
+      color: #4f6e6e;
+      border-bottom: 3px solid #e7cfb5;
+    }
+    .hero-desc {
+      font-size: 1.2rem;
+      color: #3e3a37;
+      margin-bottom: 32px;
+      max-width: 550px;
+    }
+    .hero-stats {
+      display: flex;
+      gap: 32px;
+      margin-top: 32px;
+    }
+    .stat {
+      font-weight: 700;
+      font-size: 1.3rem;
+    }
+    .hero-graphic {
+      flex: 1;
+      background: #e8dfd5;
+      border-radius: 48px;
+      padding: 32px;
+      text-align: center;
+      box-shadow: 0 20px 30px -15px rgba(0,0,0,0.1);
+    }
+    .blur-card {
+      background: white;
+      border-radius: 28px;
+      padding: 20px;
+      max-width: 280px;
+      margin: 0 auto;
+      backdrop-filter: blur(2px);
+      box-shadow: 0 15px 25px rgba(0,0,0,0.05);
+    }
+    .mock-blur-photo {
+      height: 120px;
+      background: #cdbfb0;
+      border-radius: 24px;
+      margin-bottom: 16px;
+      filter: blur(6px);
+      transition: filter 0.2s;
+    }
+
+    /* sections */
+    section {
+      padding: 80px 0;
+      border-bottom: 1px solid #efe4db;
+    }
+    .section-title {
+      font-size: 2.3rem;
+      font-weight: 700;
+      margin-bottom: 20px;
+      text-align: center;
+    }
+    .section-sub {
+      text-align: center;
+      max-width: 700px;
+      margin: 0 auto 56px;
+      color: #5a524c;
+      font-size: 1.1rem;
+    }
+    .grid-3 {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 40px;
+    }
+    .feature-card {
+      background: white;
+      padding: 32px 24px;
+      border-radius: 32px;
+      box-shadow: 0 8px 20px rgba(0,0,0,0.02);
+      transition: all 0.2s;
+      border: 1px solid #f0e4da;
+    }
+    .feature-icon {
+      font-size: 2.6rem;
+      margin-bottom: 20px;
+    }
+    .feature-card h3 {
+      font-size: 1.6rem;
+      font-weight: 600;
+      margin-bottom: 12px;
+    }
+    .pill-list {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
+      margin-top: 24px;
+    }
+    .pill {
+      background: #f2ede8;
+      padding: 6px 16px;
+      border-radius: 40px;
+      font-size: 0.85rem;
+      font-weight: 500;
+    }
+
+    /* problem-solution double column */
+    .two-columns {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 48px;
+      justify-content: space-between;
+    }
+    .col {
+      flex: 1;
+      background: #ffffffd9;
+      border-radius: 36px;
+      padding: 32px;
+      box-shadow: 0 5px 15px rgba(0,0,0,0.02);
+      border: 1px solid #efe2d9;
+    }
+    .col h3 {
+      font-size: 1.7rem;
+      font-weight: 700;
+      margin-bottom: 24px;
+    }
+    .problem-item {
+      margin-bottom: 20px;
+      border-left: 3px solid #cdb89e;
+      padding-left: 18px;
+    }
+
+    /* safety row */
+    .safety-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(240px,1fr));
+      gap: 30px;
+      margin-top: 40px;
+    }
+
+    /* roadmap */
+    .roadmap {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 20px;
+    }
+    .phase {
+      background: #f9f3ed;
+      border-radius: 32px;
+      padding: 24px;
+      flex: 1;
+      min-width: 180px;
+    }
+    .phase span {
+      font-weight: 800;
+      color: #4f6e6e;
+    }
+
+    /* cta */
+    .cta-section {
+      background: #1e2f2f;
+      color: white;
+      border-radius: 60px;
+      padding: 64px 48px;
+      text-align: center;
+      margin: 40px 0 60px;
+    }
+    .cta-section h2 {
+      font-size: 2.2rem;
+      margin-bottom: 20px;
+    }
+    .cta-section .btn-primary {
+      background: #f2e0cf;
+      color: #1e2f2f;
+      margin-top: 24px;
+    }
+    .cta-section .btn-primary:hover {
+      background: white;
+    }
+
+    footer {
+      padding: 40px 0;
+      text-align: center;
+      color: #6b625c;
+      font-size: 0.85rem;
+    }
+    @media (max-width: 750px) {
+      .hero-content h1 { font-size: 2.4rem; }
+      .navbar { flex-direction: column; }
+      .section-title { font-size: 1.8rem; }
+    }
+  </style>
+</head>
+<body>
+
+<div class="container">
+  <!-- header -->
+  <div class="navbar">
+    <div class="logo">LuvGen ✦</div>
+    <div class="nav-links">
+      <a href="#philosophy">Философия</a>
+      <a href="#features">Решения</a>
+      <a href="#safety">Безопасность</a>
+      <a href="#roadmap">Дорожная карта</a>
+      <button class="btn-outline" id="waitlistBtn">Жду запуска</button>
+    </div>
+  </div>
+
+  <!-- hero -->
+  <div class="hero">
+    <div class="hero-content">
+      <div class="badge">❝ внутренний локус контроля ❞</div>
+      <h1>Верни себе <span class="hero-accent">контроль</span> над своей любовью</h1>
+      <p class="hero-desc">LuvGen — не просто знакомства. Мы ломаем выученную беспомощность, убираем бесконечный свайпинг и возвращаем глубину.</p>
+      <button class="btn-primary" id="heroCta">✨ Стать первым пользователем</button>
+      <div class="hero-stats">
+        <div class="stat">📉 -73% <span style="font-weight:400">выгорания</span></div>
+        <div class="stat">🧠 5× <span style="font-weight:400">глубже диалоги</span></div>
+      </div>
+    </div>
+    <div class="hero-graphic">
+      <div class="blur-card">
+        <div class="mock-blur-photo"></div>
+        <div style="font-weight:500">Анна, 29 лет</div>
+        <div style="font-size:0.75rem; color:#7e6e62;">✧ 12 сообщений → фото проявилось на 40%</div>
+        <div style="margin-top:12px; background:#eee2d8; border-radius:30px; height:6px; width:70%; margin-left:auto; margin-right:auto;"></div>
+        <div style="font-size:0.7rem; margin-top:8px;">постепенное раскрытие</div>
+      </div>
+      <p style="margin-top:20px; font-size:0.8rem;">✓ фото становятся чёткими только в диалоге</p>
+    </div>
+  </div>
+
+  <!-- philosophy & problem solving -->
+  <section id="philosophy">
+    <div class="section-title">Твой Locus контролирует судьбу</div>
+    <div class="section-sub">Смещаем фокус с «мне повезёт» на «я создаю свои отношения».</div>
+    <div class="two-columns">
+      <div class="col">
+        <h3>⚡ Главные проблемы</h3>
+        <div class="problem-item"><strong>Выученная беспомощность</strong><br>бесконечный пассивный свайпинг</div>
+        <div class="problem-item"><strong>Парадокс выбора</strong><br>иллюзия «где-то лучше» → обесценивание</div>
+        <div class="problem-item"><strong>Ghosting & токсичность</strong><br>исчезновение без причины</div>
+        <div class="problem-item"><strong>Алгоритмическое неравенство</strong><br>теневой бан и платные накрутки</div>
+      </div>
+      <div class="col">
+        <h3>✨ Как LuvGen меняет правила</h3>
+        <div class="problem-item"><strong>🔁 Лимит входящих профилей</strong> — не более 5 в день. Вникайте в каждого.</div>
+        <div class="problem-item"><strong>🎭 Постепенное раскрытие</strong> — фото размыты, чёткость растёт с каждым сообщением.</div>
+        <div class="problem-item"><strong>🧭 Трекер проактивности</strong> — растёт при инициативе и быстрых ответах. Высокий индекс → закрытые ивенты.</div>
+        <div class="problem-item"><strong>💬 Конструктивное прощание</strong> — нельзя просто удалить пару, нужно выбрать вежливую причину.</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- features deep -->
+  <section id="features">
+    <div class="section-title">Механики, которые исцеляют дейтинг</div>
+    <div class="section-sub">Каждая деталь продумана, чтобы вы устали от поверхностности и полюбили осознанность.</div>
+    <div class="grid-3">
+      <div class="feature-card">
+        <div class="feature-icon">⏳</div>
+        <h3>Цифровой детокс</h3>
+        <p>30 минут в день — и приложение блокирует поиск на 2 часа. Никакого выгорания. Только качество.</p>
+        <div class="pill-list"><span class="pill">лимит времени</span><span class="pill">единый фокус 3–5 диалогов</span></div>
+      </div>
+      <div class="feature-card">
+        <div class="feature-icon">🧩</div>
+        <h3>Обязательный первый шаг</h3>
+        <p>После мэтча у вас 24 часа на мини-игру или нестандартный вопрос. Без активности пара сгорает навсегда.</p>
+      </div>
+      <div class="feature-card">
+        <div class="feature-icon">🏆</div>
+        <h3>Рейтинг глубины общения</h3>
+        <p>Алгоритм ранжирует пары по длине сообщений, взаимным вопросам, качеству диалога, а не по внешности.</p>
+      </div>
+      <div class="feature-card">
+        <div class="feature-icon">🗺️</div>
+        <h3>LuvGen‑карты</h3>
+        <p>Безопасные зоны для первых свиданий + карточки с вопросами «Conversation starters» на столах партнёров.</p>
+      </div>
+      <div class="feature-card">
+        <div class="feature-icon">🎭</div>
+        <h3>Табу на ярлыки</h3>
+        <p>Запрещены стандартные теги (рост, доход). Вместо них — облако интересов и идеальный выходной.</p>
+      </div>
+      <div class="feature-card">
+        <div class="feature-icon">🛡️</div>
+        <h3>Депозит вежливости</h3>
+        <p>Микробаллы за старт диалога. При внезапном исчезновении — баллы переходят собеседнику.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- safety & trust block -->
+  <section id="safety">
+    <div class="section-title">Безопасность и доверие — наше всё</div>
+    <div class="safety-grid">
+      <div class="feature-card" style="background:#fcf9f5;">
+        <div class="feature-icon">📹</div>
+        <h3>TrueFace верификация</h3>
+        <p>Регистрация через видеоселфи со случайным жестом. Без фильтров, без кэтфишинга.</p>
+      </div>
+      <div class="feature-card" style="background:#fcf9f5;">
+        <div class="feature-icon">🚨</div>
+        <h3>Тревожная кнопка</h3>
+        <p>Интеграция с такси и кафе-партнёрами. Один клик — безопасный выезд.</p>
+      </div>
+      <div class="feature-card" style="background:#fcf9f5;">
+        <div class="feature-icon">🔞</div>
+        <h3>Фильтр теневого контента</h3>
+        <p>Интимные фото размыты в чате, пока получатель явно не подтвердит согласие.</p>
+      </div>
+      <div class="feature-card" style="background:#fcf9f5;">
+        <div class="feature-icon">⭐</div>
+        <h3>Система «Доверенный круг»</h3>
+        <p>Ачивки на основе анонимных отзывов после реальных встреч: пунктуальный, безопасный собеседник.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- transition offline + парные челленджи -->
+  <section>
+    <div class="two-columns">
+      <div class="col">
+        <h3>🌿 Парные челленджи в реальном мире</h3>
+        <p>Миссии: сходить на выставку, приготовить новое блюдо. За выполнение — бонусы и эксклюзивный контент. Переход из онлайна в офлайн становится игрой, а не стрессом.</p>
+        <div class="pill-list"><span class="pill">совместные квесты</span><span class="pill">билеты со скидкой</span></div>
+      </div>
+      <div class="col">
+        <h3>🎥 Виртуальные свидания с гидом</h3>
+        <p>Видеочат со встроенными темами, рефлексивными вопросами и играми. Идеально для тех, кто боится офлайн-встречи.</p>
+        <div class="pill-list"><span class="pill">гид-помощник</span><span class="pill">без неловких пауз</span></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- прозрачный алгоритм & монетизация -->
+  <section>
+    <div class="section-title">Прозрачность вместо теневого бана</div>
+    <div class="section-sub">Никакой манипуляции вниманием. Платные функции не поднимают в поиске, а дают доступ к курсам и событиям.</div>
+    <div class="grid-3">
+      <div class="feature-card">
+        <h3>🔍 Режим исследователя</h3>
+        <p>Показываем людей максимально не похожих на ваш обычный выбор — расширяем горизонты.</p>
+      </div>
+      <div class="feature-card">
+        <h3>📊 Индекс проактивности</h3>
+        <p>Вместо статистики лайков — рейтинг инициативности. Высокий индекс открывает закрытые сообщества.</p>
+      </div>
+      <div class="feature-card">
+        <h3>🎓 LuvGen Plus</h3>
+        <p>Доступ к вебинарам психологов, курсам по коммуникации, партнёрским скидкам — без накрутки профилей.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- roadmap -->
+  <section id="roadmap">
+    <div class="section-title">Дорожная карта LuvGen</div>
+    <div class="roadmap">
+      <div class="phase"><span>⚡ Фаза 1</span><br>Регистрация + верификация, лимит 5 профилей, чат, трекер активности</div>
+      <div class="phase"><span>🌀 Фаза 2</span><br>Постепенное раскрытие фото, модератор стереотипов</div>
+      <div class="phase"><span>🛡️ Фаза 3</span><br>Тревожная кнопка, фильтр контента, парные челленджи</div>
+      <div class="phase"><span>📱 Фаза 4</span><br>Мобильные приложения, Locus-карты, интеграция с партнёрами</div>
+    </div>
+    <div style="text-align:center; margin-top: 48px;">
+      <span class="badge">MVP через 3 месяца после пресейла</span>
+    </div>
+  </section>
+
+  <!-- CTA final -->
+  <div class="cta-section">
+    <h2>Хватит пролистывать — начните выбирать осознанно</h2>
+    <p style="max-width: 500px; margin: 0 auto; opacity: 0.9;">Присоединяйтесь к сообществу, где ценят глубину, безопасность и внутренний локус контроля.</p>
+    <button class="btn-primary" id="ctaBottom">📬 Получить приглашение</button>
+    <p style="margin-top: 24px; font-size: 0.75rem;">Бесплатно. Без свайпинга. Только реальные намерения.</p>
+  </div>
+
+  <footer>
+    <p>LuvGen — экосистема осознанных знакомств. Верни себе контроль над своей любовью.</p>
+    <p style="margin-top: 16px;">© 2026 LuvGen · Прозрачный алгоритм · Анти-выгорание · Живая верификация</p>
+  </footer>
+</div>
+
+<!-- simple modal popup for demo (just interactive message) -->
+<script>
+  function showWaitlistMessage() {
+    alert("✨ Спасибо! Вы в списке ожидания LuvGen. Первым расскажем о запуске и дадим бесплатный доступ к трекеру проактивности.");
+  }
+  document.getElementById('waitlistBtn')?.addEventListener('click', showWaitlistMessage);
+  document.getElementById('heroCta')?.addEventListener('click', showWaitlistMessage);
+  document.getElementById('ctaBottom')?.addEventListener('click', showWaitlistMessage);
+  
+  // добавим интерактивный hover кнопкам (просто эффект)
+  const btns = document.querySelectorAll('.btn-primary, .btn-outline');
+  btns.forEach(btn => {
+    btn.addEventListener('mouseenter', () => {
+      if(btn.classList.contains('btn-outline')) {
+        btn.style.backgroundColor = '#1e2f2f10';
+      }
+    });
+    btn.addEventListener('mouseleave', () => {
+      if(btn.classList.contains('btn-outline')) {
+        btn.style.backgroundColor = 'transparent';
+      }
+    });
+  });
+</script>
+</body>
+</html>
