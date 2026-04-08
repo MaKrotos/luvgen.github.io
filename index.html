@@ -135,7 +135,7 @@
       font-family: 'Inter', sans-serif;
       background: #fefaf6;
       color: #1e1b1a;
-      line-height: 1.4;
+      line-height: 1.5;
       scroll-behavior: smooth;
     }
 
@@ -145,7 +145,6 @@
       padding: 0 20px;
     }
 
-    /* Адаптивные отступы для мобильных */
     @media (max-width: 640px) {
       .container {
         padding: 0 16px;
@@ -218,7 +217,6 @@
       display: inline-block;
     }
 
-    /* Навбар — адаптивный */
     .navbar {
       padding: 20px 0;
       display: flex;
@@ -269,7 +267,6 @@
       font-size: 0.95rem;
     }
     
-    /* Hero секция — адаптив */
     .hero {
       padding: 40px 0 60px;
       display: flex;
@@ -379,7 +376,6 @@
       filter: blur(6px);
     }
     
-    /* Секции */
     section {
       padding: 60px 0;
       border-bottom: 1px solid #efe4db;
@@ -560,7 +556,6 @@
       margin-bottom: 8px;
     }
     
-    /* CTA секция */
     .cta-section {
       background: #1e2f2f;
       color: white;
@@ -610,13 +605,11 @@
       }
     }
     
-    /* Дополнительные улучшения для touch */
     button, .btn-primary, .btn-outline, .nav-links a {
       cursor: pointer;
       touch-action: manipulation;
     }
     
-    /* Улучшаем читаемость на маленьких экранах */
     @media (max-width: 480px) {
       body {
         font-size: 15px;
@@ -624,6 +617,44 @@
       .hero-stats .stat span {
         display: block;
         font-size: 0.75rem;
+      }
+    }
+
+    /* Новые стили для расширенных блоков */
+    .moderation-table {
+      width: 100%;
+      border-collapse: collapse;
+      margin-top: 24px;
+      font-size: 0.9rem;
+    }
+    .moderation-table th {
+      text-align: left;
+      background: #1e2f2f;
+      color: white;
+      padding: 12px 8px;
+      font-weight: 500;
+    }
+    .moderation-table td {
+      padding: 10px 8px;
+      border-bottom: 1px solid #efe4db;
+    }
+    .thanks-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 16px;
+      margin: 20px 0;
+    }
+    .thanks-item {
+      background: #fcf9f5;
+      padding: 15px;
+      border-radius: 20px;
+    }
+    @media (max-width: 640px) {
+      .thanks-grid {
+        grid-template-columns: 1fr;
+      }
+      .moderation-table {
+        font-size: 0.8rem;
       }
     }
   </style>
@@ -636,8 +667,9 @@
     <div class="nav-links">
       <a href="#philosophy">Философия</a>
       <a href="#features">Решения</a>
-      <a href="#safety">Безопасность</a>
-      <a href="#roadmap">Дорожная карта</a>
+      <a href="#ghosting">Анти-гостинг</a>
+      <a href="#moderation">Модерация</a>
+      <a href="#roadmap">Разработка</a>
       <button class="btn-outline" id="waitlistBtn">✨ Telegram канал</button>
     </div>
   </div>
@@ -728,80 +760,113 @@
     </div>
   </section>
 
-  <!-- SAFETY -->
-  <section id="safety">
-    <h2 class="section-title">Безопасность и доверие</h2>
-    <div class="safety-grid">
-      <div class="feature-card" style="background:#fcf9f5;">
-        <div class="feature-icon">📹</div>
-        <h3>TrueFace верификация</h3>
-        <p>Регистрация через видеоселфи со случайным жестом. Без фильтров, без кэтфишинга.</p>
-      </div>
-      <div class="feature-card" style="background:#fcf9f5;">
-        <div class="feature-icon">🔞</div>
-        <h3>Фильтр контента</h3>
-        <p>Интимные фото размыты в чате, пока получатель не подтвердит согласие.</p>
-      </div>
-      <div class="feature-card" style="background:#fcf9f5;">
-        <div class="feature-icon">⭐</div>
-        <h3>Система «Доверенный круг»</h3>
-        <p>Ачивки на основе анонимных отзывов после реальных встреч.</p>
-      </div>
-      <div class="feature-card" style="background:#fcf9f5;">
-        <div class="feature-icon">🤖</div>
-        <h3>Антибот защита</h3>
-        <p>Многоуровневая проверка анкет. 99.9% реальных людей.</p>
-      </div>
-    </div>
-  </section>
-
-  <!-- OFFLINE CHALLENGES -->
-  <section>
+  <!-- ANTI-GHOSTING & THANKS SYSTEM (НОВЫЙ БЛОК) -->
+  <section id="ghosting">
+    <h2 class="section-title">⚔️ Война объявлена: Ghosting под запретом</h2>
+    <div class="section-sub">Мы не заставляем общаться с теми, кто не нравится. Мы просим закрывать двери, а не убегать через окно.</div>
+    
     <div class="two-columns">
       <div class="col">
-        <h3>🌿 Парные челленджи в реальном мире</h3>
-        <p>Миссии: сходить на выставку, приготовить новое блюдо. За выполнение — бонусы и эксклюзивный контент.</p>
-        <div class="pill-list"><span class="pill">совместные квесты</span><span class="pill">билеты со скидкой</span></div>
+        <h3>🕊️ Конструктивное прощание</h3>
+        <p>Кнопка «Завершить диалог» доступна только после выбора причины: «Разный ритм», «Ищу другого», «Нужна пауза». Собеседник получает анонимное уведомление — это даёт closure.</p>
+        <p style="margin-top: 16px;"><strong>Шкала последствий для «призраков»:</strong></p>
+        <ul style="margin-top: 10px; padding-left: 20px;">
+          <li>1 раз: –10 баллов, –5% проактивности</li>
+          <li>2 раза за месяц: –20 баллов, –10% к чёткости фото</li>
+          <li>3 раза: профиль скрыт на 48 часов</li>
+          <li>4+ раз: видео-эссе «Почему я исчезаю»</li>
+        </ul>
+        <div class="pill-list" style="margin-top: 20px;"><span class="pill">депозит вежливости</span><span class="pill">помощник прощания</span></div>
       </div>
       <div class="col">
-        <h3>🎥 Виртуальные свидания с гидом</h3>
-        <p>Видеочат со встроенными темами, рефлексивными вопросами и играми. Без неловких пауз.</p>
-        <div class="pill-list"><span class="pill">гид-помощник</span><span class="pill">без стресса</span></div>
+        <h3>✨ Система «Спасибо»</h3>
+        <p>Комплимент становится валютой доверия. Нажми ✨ на сообщении, которое зацепило глубиной, юмором или поддержкой.</p>
+        <div class="thanks-grid">
+          <div class="thanks-item"><strong>🧠 За глубину</strong><br>+3 балла вежливости</div>
+          <div class="thanks-item"><strong>🤝 За поддержку</strong><br>+2 балла</div>
+          <div class="thanks-item"><strong>😄 За юмор</strong><br>+2 балла</div>
+          <div class="thanks-item"><strong>🕊️ За красивое прощание</strong><br>+4 балла</div>
+        </div>
+        <p><strong>Награды за «Спасибо»:</strong> 10 благодарностей = +5% к чёткости фото навсегда. 50 = статус «Мастер диалога» и бесплатная LuvGen Plus.</p>
       </div>
     </div>
   </section>
 
-  <!-- ALGORITHM -->
-  <section>
-    <h2 class="section-title">Прозрачность вместо теневого бана</h2>
-    <div class="section-sub">Никакой манипуляции вниманием. Платные функции не поднимают в поиске.</div>
-    <div class="grid-3">
+  <!-- МОДЕРАЦИЯ И НАКАЗАНИЯ (РАСШИРЕННЫЙ БЛОК) -->
+  <section id="moderation">
+    <h2 class="section-title">🛡️ Система модерации: защита осознанных</h2>
+    <div class="section-sub">«Мы наказываем не человека, а поведение. Ты всегда можешь вернуться, если готов играть по‑честному».</div>
+    
+    <div style="overflow-x: auto;">
+      <table class="moderation-table">
+        <thead><tr><th>Нарушение</th><th>Штраф</th><th>Восстановление</th></tr></thead>
+        <tbody>
+          <tr><td>Шаблонные первые сообщения</td><td>–2% диафрагмы</td><td>Написать 3 оригинальных</td></tr>
+          <tr><td>Сухие ответы‑эхо</td><td>Остановка роста диафрагмы</td><td>Задать встречный вопрос</td></tr>
+          <tr><td>Ранний запрос контактов</td><td>–5 баллов вежливости</td><td>Подождать 5 обменов</td></tr>
+          <tr><td>Агрессия в чате</td><td>–20 баллов, –10% диафрагмы</td><td>Видео‑эссе</td></tr>
+          <tr><td>Коллекционирование мэтчей</td><td>Диафрагма до 0%</td><td>Начать диалог</td></tr>
+          <tr><td>Кэтфишинг / обман верификации</td><td>Бан + TrueFace‑блокировка</td><td>Невозможно</td></tr>
+          <tr><td>Мошенничество / эскорт</td><td>Бан + передача в полицию</td><td>Невозможно</td></tr>
+          <tr><td>Неявка на свидание</td><td>–50 баллов, диафрагма 0% на 14 дней</td><td>Эссе + 3 отзыва</td></tr>
+        </tbody>
+      </table>
+    </div>
+    
+    <div class="grid-3" style="margin-top: 40px;">
       <div class="feature-card">
-        <h3>🔍 Режим исследователя</h3>
-        <p>Показываем людей не похожих на ваш обычный выбор — расширяем горизонты.</p>
+        <div class="feature-icon">⚖️</div>
+        <h3>Право на апелляцию</h3>
+        <p>Модератор‑человек рассматривает жалобу. При ошибке системы — штраф снимается + компенсация +5 баллов.</p>
       </div>
       <div class="feature-card">
-        <h3>📊 Индекс проактивности</h3>
-        <p>Вместо лайков — рейтинг инициативности. Высокий индекс открывает закрытые сообщества.</p>
+        <div class="feature-icon">🔄</div>
+        <h3>Срок давности</h3>
+        <p>Мелкие нарушения сгорают через 30 дней. Средние — через 90 дней. Тяжёлые — бессрочно.</p>
       </div>
       <div class="feature-card">
-        <h3>🎓 LuvGen Plus</h3>
-        <p>Доступ к вебинарам психологов и курсам по коммуникации. Без накрутки профилей.</p>
+        <div class="feature-icon">🌱</div>
+        <h3>Реабилитация</h3>
+        <p>Пройди курс «Осознанное общение» — спиши 50% штрафных баллов. Получи 5 благодарностей — восстанови диафрагму.</p>
       </div>
     </div>
   </section>
 
-  <!-- ROADMAP -->
+  <!-- ROADMAP & ТЕКУЩИЙ СТАТУС РАЗРАБОТКИ (РАСШИРЕН) -->
   <section id="roadmap">
-    <h2 class="section-title">Дорожная карта LuvGen</h2>
+    <h2 class="section-title">🚀 Дорожная карта и статус разработки</h2>
     <div class="roadmap">
-      <div class="phase"><span>⚡ Фаза 1</span><br>Регистрация + верификация, лимит 5 профилей, чат</div>
-      <div class="phase"><span>🌀 Фаза 2</span><br>Постепенное раскрытие фото, модерация</div>
-      <div class="phase"><span>🌍 Фаза 3</span><br>Парные челленджи, LuvGen-карты</div>
-      <div class="phase"><span>📱 Фаза 4</span><br>Мобильные приложения iOS/Android</div>
+      <div class="phase"><span>⚡ Фаза 1 (MVP)</span><br>Регистрация, верификация, лимит 5 профилей, чат</div>
+      <div class="phase"><span>🌀 Фаза 2</span><br>Постепенное раскрытие фото, трекер проактивности</div>
+      <div class="phase"><span>🌍 Фаза 3</span><br>Система безопасности, тревожная кнопка, парные челленджи</div>
+      <div class="phase"><span>📱 Фаза 4</span><br>Мобильные приложения iOS/Android, интеграция с партнёрами</div>
     </div>
-    <div style="text-align:center; margin-top: 40px;">
-      <span class="badge">MVP через 3 месяца</span>
+    
+    <div style="margin-top: 48px;">
+      <h3 style="font-size: 1.6rem; margin-bottom: 20px; text-align: center;">📋 Текущий статус (Апрель 2026)</h3>
+      <div class="two-columns">
+        <div class="col">
+          <h4>✅ Реализовано</h4>
+          <ul style="padding-left: 20px; margin-top: 15px;">
+            <li>Бэкенд: Go API, JWT, PostgreSQL, Redis</li>
+            <li>Фронтенд: Vue.js, страницы входа/регистрации/профиля</li>
+            <li>Discovery и свайп-интерфейс (ProfileStack)</li>
+            <li>Загрузка фото в S3/MinIO</li>
+            <li>Адаптивная навигация и BottomNav</li>
+          </ul>
+        </div>
+        <div class="col">
+          <h4>🔜 В активной разработке</h4>
+          <ul style="padding-left: 20px; margin-top: 15px;">
+            <li>Лимит 5 профилей в день (счётчик)</li>
+            <li>Механизм blur_level для Progressive Reveal</li>
+            <li>Индекс проактивности и трекер</li>
+            <li>TrueFace верификация (API интеграция)</li>
+            <li>Система «Спасибо» и депозит вежливости</li>
+          </ul>
+        </div>
+      </div>
+      <p style="text-align: center; margin-top: 24px;"><span class="badge">Следующий релиз: через 1.5 месяца — запуск Progressive Reveal</span></p>
     </div>
   </section>
 
