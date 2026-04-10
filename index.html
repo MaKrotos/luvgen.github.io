@@ -3,18 +3,16 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover, user-scalable=yes">
-  <title>LuvGen — знакомства, где тебя слышат, а не оценивают</title>
+  <title>LuvGen — верни себе контроль над своей любовью</title>
   
-  <!-- ★★★ ЖЕСТКАЯ SEO-ОПТИМИЗАЦИЯ ★★★ -->
-  <meta name="description" content="LuvGen: Приложение для знакомств, где фото открываются только в ответ на глубину. Никакой объективации, никаких дикпиков, никакого «привет, как дела?». Безопасное пространство для тех, кто устал от Tinder.">
-  <meta name="keywords" content="знакомства для девушек, безопасные знакомства, без дикпиков, осознанные знакомства, serious dating, приложение без свайпов, устала от тиндера, качественные знакомства, LuvGen">
+  <!-- ★ СИЛЬНАЯ SEO-ОПТИМИЗАЦИЯ + КОНЦЕПТУАЛЬНЫЙ МЕССЕНДЖЕР ★ -->
+  <meta name="description" content="LuvGen — знакомства без выученной беспомощности. Лимит анкет в день, постепенное раскрытие фото, депозит вежливости и осознанный выбор. Для тех, кто устал от Tinder и хочет глубины.">
+  <meta name="keywords" content="осознанные знакомства, безопасный дейтинг, без ghosting, лимит профилей, постепенное раскрытие фото, серьезные отношения, LuvGen">
   
-  <!-- Open Graph -->
-  <meta property="og:title" content="LuvGen — здесь тебя ценят за душу, а не за аватарку">
-  <meta property="og:description" content="Фото останутся размытыми, пока он не докажет, что ему интересна ты, а не твоё тело. Присоединяйся к безопасному дейтингу.">
-  <meta property="og:image" content="https://luvgen.app/og-girls.jpg">
+  <meta property="og:title" content="LuvGen — знакомства, где ты управляешь процессом">
+  <meta property="og:description" content="Не просто свайпы. Психологически выверенная экосистема, которая возвращает ценность каждому диалогу.">
+  <meta property="og:image" content="https://luvgen.app/og-concept.jpg">
   
-  <!-- Схемы и шрифты оставлены как в оригинале -->
   <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,300;14..32,400;14..32,500;14..32,600;14..32,700;14..32,800&family=Playfair+Display:ital,wght@0,400;0,600;1,400&display=swap" rel="stylesheet">
   
   <style>
@@ -26,7 +24,7 @@
 
     body {
       font-family: 'Inter', sans-serif;
-      background: #fdfbf9;
+      background: #fefcf9;
       color: #1e1b1a;
       line-height: 1.5;
     }
@@ -43,12 +41,14 @@
       letter-spacing: -0.02em;
     }
 
-    /* Новая палитра: мягкая, женственная, но не розовая */
     :root {
-      --primary: #2c4c4b; /* глубокий изумрудный — доверие */
-      --accent: #b48c6c;  /* тёплый nude — спокойствие */
+      --primary: #2c4c4b;
+      --primary-dark: #1f3a39;
+      --accent: #b48c6c;
       --bg-soft: #f6f2ee;
       --border-light: #e7dbd1;
+      --warning: #c25b3a;
+      --trust: #2c6e6c;
     }
 
     .btn-primary {
@@ -62,25 +62,20 @@
       cursor: pointer;
       transition: all 0.2s;
       box-shadow: 0 8px 20px rgba(44, 76, 75, 0.15);
-      border: 1px solid rgba(255,255,255,0.1);
-      width: auto;
       min-width: 260px;
     }
-    
     .btn-primary:hover {
-      background: #1f3a39;
+      background: var(--primary-dark);
       transform: translateY(-3px);
-      box-shadow: 0 15px 25px rgba(44, 76, 75, 0.25);
     }
-    
     .btn-outline {
       background: transparent;
       border: 1.5px solid var(--primary);
       color: var(--primary);
       padding: 10px 22px;
-      font-weight: 500;
       border-radius: 40px;
       cursor: pointer;
+      font-weight: 500;
     }
 
     .navbar {
@@ -88,34 +83,37 @@
       display: flex;
       justify-content: space-between;
       align-items: center;
+      flex-wrap: wrap;
     }
-    
     .logo {
       font-size: 2rem;
       font-weight: 500;
       font-family: 'Playfair Display', serif;
       color: var(--primary);
     }
-    
+    .nav-links {
+      display: flex;
+      gap: 28px;
+      align-items: center;
+      flex-wrap: wrap;
+    }
     .nav-links a {
       text-decoration: none;
       color: #3a3532;
-      font-weight: 400;
-      margin-left: 32px;
+      font-weight: 500;
     }
 
-    /* Hero — акцент на безопасность и слушание */
+    /* HERO секция с акцентом на контроль */
     .hero {
       padding: 40px 0 80px;
       display: flex;
       align-items: center;
       gap: 60px;
+      flex-wrap: wrap;
     }
-    
     .hero-content {
       flex: 1.2;
     }
-    
     .hero-badge {
       background: var(--bg-soft);
       padding: 8px 18px;
@@ -124,86 +122,64 @@
       color: var(--primary);
       display: inline-block;
       margin-bottom: 24px;
-      border: 1px solid var(--border-light);
     }
-    
     .hero-content h1 {
       font-size: 3.5rem;
       line-height: 1.1;
       margin-bottom: 24px;
-      color: #1c1816;
     }
-    
     .hero-accent {
       color: var(--accent);
       border-bottom: 3px solid #dcc9b8;
       font-style: italic;
     }
-    
     .hero-desc {
       font-size: 1.2rem;
       color: #4a423e;
       margin-bottom: 32px;
-      max-width: 90%;
     }
-
-    .hero-graphic {
-      flex: 1;
-      background: linear-gradient(145deg, #ffffff, #f8f4f0);
-      border-radius: 48px;
-      padding: 24px;
-      box-shadow: 0 30px 40px -20px rgba(0,0,0,0.08);
-      border: 1px solid var(--border-light);
-    }
-
-    /* Карточка с размытым фото — женский взгляд */
-    .blur-card {
-      background: white;
-      border-radius: 32px;
-      padding: 24px 20px;
-    }
-    
-    .blur-photo-stack {
+    .hero-stats {
       display: flex;
-      flex-direction: column;
-      gap: 12px;
-      margin-bottom: 24px;
+      gap: 32px;
+      margin-top: 24px;
     }
-    
-    .blur-photo {
-      height: 140px;
-      background: #d4c3b7;
-      border-radius: 28px;
-      filter: blur(12px);
-      transition: all 0.3s;
-      background-image: url('data:image/svg+xml,%3Csvg xmlns=\'http://www.w3.org/2000/svg\' viewBox=\'0 0 100 100\'%3E%3Cpath d=\'M20 50 Q40 20 60 40 T90 30\' stroke=\'%23b48c6c\' fill=\'none\' stroke-width=\'2\'/%3E%3C/svg%3E');
-      background-size: cover;
+    .stat-item {
+      font-weight: 600;
     }
-    
-    .blur-photo:last-child {
-      filter: blur(4px);
-      opacity: 0.9;
-    }
-    
-    .quote-in-card {
-      font-style: italic;
-      color: #4a423e;
-      margin: 20px 0;
-      padding-left: 16px;
-      border-left: 3px solid var(--accent);
+    .stat-number {
+      font-size: 1.8rem;
+      font-weight: 800;
+      color: var(--primary);
     }
 
-    section {
-      padding: 80px 0;
+    /* карточка механик */
+    .feature-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 32px;
+      margin: 60px 0;
+    }
+    .feature-card {
+      background: white;
+      padding: 28px;
+      border-radius: 32px;
+      border: 1px solid var(--border-light);
+      transition: 0.2s;
+    }
+    .feature-icon {
+      font-size: 2.5rem;
+      margin-bottom: 20px;
+    }
+    .feature-card h3 {
+      font-size: 1.5rem;
+      margin-bottom: 12px;
     }
 
     .section-title {
       font-size: 2.8rem;
       margin-bottom: 20px;
       text-align: center;
-      color: #1c1816;
     }
-    
     .section-sub {
       text-align: center;
       font-size: 1.2rem;
@@ -212,82 +188,101 @@
       margin: 0 auto 60px;
     }
 
-    /* Сетка для возражений */
-    .grid-2 {
+    /* сравнительная таблица / возражения */
+    .comparison-grid {
       display: grid;
       grid-template-columns: 1fr 1fr;
       gap: 40px;
+      margin: 50px 0;
     }
-    
-    .objection-card {
+    .comparison-card {
       background: white;
-      padding: 32px;
       border-radius: 32px;
-      box-shadow: 0 10px 25px rgba(0,0,0,0.02);
+      padding: 32px;
+      box-shadow: 0 10px 20px rgba(0,0,0,0.02);
       border: 1px solid var(--border-light);
     }
-    
-    .objection-card h3 {
+    .comparison-card h3 {
       font-size: 1.8rem;
-      margin-bottom: 20px;
+      margin-bottom: 24px;
     }
-    
-    .resolution {
-      background: var(--bg-soft);
-      padding: 20px;
-      border-radius: 24px;
-      margin-top: 24px;
+    .comparison-list {
+      list-style: none;
+    }
+    .comparison-list li {
+      margin-bottom: 18px;
+      display: flex;
+      align-items: center;
+      gap: 12px;
     }
 
-    /* Для парней — отдельный блок с другой тональностью */
-    .for-guys {
-      background: #1c2524;
-      color: white;
+    /* блок про депозит вежливости и ghosting */
+    .ghost-prevention {
+      background: linear-gradient(135deg, #1c2524 0%, #2c4c4b 100%);
       border-radius: 48px;
       padding: 48px;
-      margin: 40px 0;
-    }
-    
-    .for-guys h3 {
       color: white;
-      font-size: 2rem;
+      margin: 60px 0;
     }
-    
-    .guys-grid {
+    .ghost-grid {
       display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: 30px;
-      margin-top: 40px;
+      grid-template-columns: 1fr 1fr;
+      gap: 40px;
+      margin-top: 32px;
     }
-    
-    .guy-benefit {
-      background: rgba(255,255,255,0.05);
+    .ghost-stat {
+      background: rgba(255,255,255,0.08);
       padding: 24px;
-      border-radius: 24px;
-      border: 1px solid rgba(255,255,255,0.1);
+      border-radius: 28px;
+      backdrop-filter: blur(2px);
     }
 
-    /* Отзывы — соц. доказательство */
+    .progressive-reveal {
+      background: var(--bg-soft);
+      border-radius: 48px;
+      padding: 48px;
+      margin: 60px 0;
+    }
+
+    .steps {
+      display: flex;
+      justify-content: space-between;
+      gap: 20px;
+      flex-wrap: wrap;
+      margin-top: 40px;
+    }
+    .step {
+      background: white;
+      border-radius: 28px;
+      padding: 24px;
+      flex: 1;
+      text-align: center;
+      box-shadow: 0 8px 20px rgba(0,0,0,0.05);
+    }
+    .blur-sample {
+      width: 100px;
+      height: 100px;
+      background: #d4c3b7;
+      margin: 0 auto 16px;
+      border-radius: 50%;
+      transition: filter 0.2s;
+    }
+    .blur-0 { filter: blur(12px); }
+    .blur-1 { filter: blur(6px); }
+    .blur-2 { filter: blur(2px); }
+    .blur-3 { filter: blur(0px); background: var(--accent); }
+
     .testimonial-grid {
       display: grid;
-      grid-template-columns: repeat(2, 1fr);
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
       gap: 30px;
+      margin: 50px 0;
     }
-    
     .testimonial {
       background: white;
       padding: 28px;
       border-radius: 28px;
-      box-shadow: 0 15px 20px rgba(0,0,0,0.02);
       border: 1px solid var(--border-light);
-    }
-    
-    .testimonial-avatar {
-      width: 48px;
-      height: 48px;
-      background: var(--bg-soft);
-      border-radius: 60px;
-      margin-bottom: 16px;
     }
 
     .cta-section {
@@ -296,25 +291,23 @@
       border-radius: 64px;
       padding: 64px;
       text-align: center;
+      margin: 60px 0;
+    }
+
+    footer {
+      padding: 40px 0;
+      text-align: center;
+      color: #6b625c;
+      border-top: 1px solid var(--border-light);
     }
 
     @media (max-width: 768px) {
-      .hero {
-        flex-direction: column;
-        padding: 20px 0 40px;
-      }
-      .hero-content h1 {
-        font-size: 2.5rem;
-      }
-      .grid-2, .testimonial-grid, .guys-grid {
-        grid-template-columns: 1fr;
-      }
-      .nav-links {
-        display: none;
-      }
-      .section-title {
-        font-size: 2rem;
-      }
+      .hero-content h1 { font-size: 2.5rem; }
+      .comparison-grid, .ghost-grid { grid-template-columns: 1fr; }
+      .steps { flex-direction: column; }
+      .section-title { font-size: 2rem; }
+      .cta-section { padding: 32px; }
+      .nav-links { margin-top: 16px; }
     }
   </style>
 </head>
@@ -324,175 +317,194 @@
   <div class="navbar">
     <div class="logo">LuvGen ✦</div>
     <div class="nav-links">
-      <a href="#safety">Безопасность</a>
-      <a href="#how">Как это работает</a>
-      <a href="#guys">Парням</a>
+      <a href="#mechanics">Как мы лечим дейтинг</a>
+      <a href="#ghost">Без ghosting</a>
+      <a href="#progressive">Раскрытие фото</a>
       <button class="btn-outline" id="waitlistBtn">Telegram</button>
     </div>
   </div>
 
-  <!-- HERO: Говорим с девушкой, которая устала -->
+  <!-- HERO: борьба с выученной беспомощностью -->
   <div class="hero">
     <div class="hero-content">
-      <div class="hero-badge">✧ Для тех, кто устал от «привет, красотка» ✧</div>
+      <div class="hero-badge">⚡ Локус контроля — внутри тебя ⚡</div>
       <h1>
-        Твоё лицо увидят<br>
-        <span class="hero-accent">только после того,</span><br>
-        как услышат твои мысли
+        Верни себе <span class="hero-accent">контроль</span><br>
+        над своей любовью
       </h1>
       <p class="hero-desc">
-        LuvGen — единственное приложение, где фото открываются постепенно. 
-        Он не сможет оценить твою внешность, пока не докажет, что ему интересна <strong>ты</strong>, а не картинка.
+        LuvGen — не очередной свайпер. Мы боремся с выученной беспомощностью, парадоксом выбора и обесцениванием.  
+        Ты получаешь не сотни фейков, а <strong>5 осмысленных анкет в день</strong>. Никакого бесконечного листания.
       </p>
-      <button class="btn-primary" id="heroCta">✨ Попробовать бесплатно</button>
-      <div style="margin-top: 24px; font-size: 0.9rem; color: #6b625c;">
-        ✓ Никаких дикпиков &nbsp;&nbsp; ✓ 100% верификация лиц &nbsp;&nbsp; ✓ Только живые диалоги
+      <button class="btn-primary" id="heroCta">✨ Начать осознанный поиск</button>
+      <div class="hero-stats">
+        <div class="stat-item"><span class="stat-number">-84%</span><br>выгорания</div>
+        <div class="stat-item"><span class="stat-number">3.2x</span><br>глубже диалоги</div>
+        <div class="stat-item"><span class="stat-number">0</span><br>дикпиков</div>
       </div>
     </div>
-    <div class="hero-graphic">
-      <div class="blur-card">
-        <div style="display: flex; justify-content: space-between; margin-bottom: 16px;">
-          <span>💬 Михаил, 30</span>
-          <span style="color: var(--accent);">Диалог 4/10</span>
-        </div>
-        <div class="blur-photo-stack">
-          <div class="blur-photo"></div>
-        </div>
-        <div class="quote-in-card">
-          «Мне кажется, у тебя очень глубокий взгляд на жизнь. Расскажи про свою последнюю поездку?»
-        </div>
-        <div style="font-size: 0.8rem; color: #8a7e76; text-align: center;">
-          Фото проявится на 20% после ещё 2 сообщений
-        </div>
+    <div class="hero-graphic" style="flex:1; background: white; border-radius: 48px; padding: 24px; border:1px solid var(--border-light);">
+      <div style="text-align:center; margin-bottom: 20px;">
+        <span style="background: var(--bg-soft); padding: 8px 16px; border-radius: 40px;">🧠 Индекс проактивности +23%</span>
       </div>
-      <p style="margin-top: 20px; text-align: center; font-weight: 500;">
-        <span style="background: var(--bg-soft); padding: 6px 16px; border-radius: 40px;">📸 Ты решаешь, когда показать лицо полностью</span>
-      </p>
+      <div style="background:#f0ebe6; border-radius: 28px; padding: 20px;">
+        <div style="display: flex; justify-content: space-between;">
+          <span>🔥 Сегодня ты инициировал(а):</span>
+          <strong>3 диалога</strong>
+        </div>
+        <div style="height: 8px; background:#ddd; border-radius: 10px; margin: 16px 0;">
+          <div style="width: 68%; background: var(--primary); height: 8px; border-radius: 10px;"></div>
+        </div>
+        <p style="font-size:0.9rem;">➕ Бонус: высокий индекс открывает доступ к закрытым ивентам</p>
+      </div>
+      <div style="margin-top: 20px; text-align:center; font-size:0.85rem;">
+        ⚡ Лимит на сегодня: 4/5 профилей · следующий профиль через 2 часа
+      </div>
     </div>
   </div>
 
-  <!-- РАБОТА С ВОЗРАЖЕНИЯМИ: "Но внешность важна!" -->
-  <section id="safety">
-    <h2 class="section-title">«Но я же должна видеть, с кем общаюсь»</h2>
-    <div class="section-sub">Мы не прячем лица навсегда. Мы убираем поверхностные оценки на старте. Вот как это меняет правила игры для девушек.</div>
+  <!-- ГЛУБИННЫЕ МЕХАНИКИ: почему LuvGen другой -->
+  <section id="mechanics">
+    <h2 class="section-title">Психология, а не алгоритмы кликбейта</h2>
+    <div class="section-sub">Мы переработали каждую боль классических приложений. Вот ключевые решения.</div>
     
-    <div class="grid-2">
-      <div class="objection-card">
-        <h3>😤 Обычное приложение</h3>
-        <ul style="list-style: none; padding: 0;">
-          <li style="margin-bottom: 16px;">❌ Свайп за 0.5 сек по фото</li>
-          <li style="margin-bottom: 16px;">❌ 50 «привет, секс?» в день</li>
-          <li style="margin-bottom: 16px;">❌ Страх встретить знакомого коллегу</li>
-          <li style="margin-bottom: 16px;">❌ Ты — картинка в ленте</li>
-        </ul>
-        <div class="resolution" style="background: #f9e6e0;">
-          <strong>Итог:</strong> выгорание через 3 дня и удаление.
-        </div>
+    <div class="feature-grid">
+      <div class="feature-card">
+        <div class="feature-icon">📉</div>
+        <h3>Лимит 5 профилей в день</h3>
+        <p>Ты больше не пролистываешь сотни лиц за вечер. Каждая анкета получает внимание, а парадокс выбора исчезает. Качество важнее количества.</p>
       </div>
-      <div class="objection-card" style="border: 2px solid var(--accent);">
-        <h3>🌸 LuvGen</h3>
-        <ul style="list-style: none; padding: 0;">
-          <li style="margin-bottom: 16px;">✨ Фото в фокусе только к 10-му сообщению</li>
-          <li style="margin-bottom: 16px;">✨ Он читает твоё «О себе» и отвечает на смысл</li>
-          <li style="margin-bottom: 16px;">✨ Анонимный режим для контактов из телефонной книги</li>
-          <li style="margin-bottom: 16px;">✨ Ты — личность с историей</li>
-        </ul>
-        <div class="resolution" style="background: #e8f0ef;">
-          <strong>Итог:</strong> 2-3 глубоких диалога в неделю без спама.
-        </div>
+      <div class="feature-card">
+        <div class="feature-icon">🧩</div>
+        <h3>Обязательный первый шаг</h3>
+        <p>После мэтча — 24 часа на мини-игру или ответ на нестандартный вопрос. Без активности пара сгорает. Никакого «привет, как дела?».</p>
+      </div>
+      <div class="feature-card">
+        <div class="feature-icon">📊</div>
+        <h3>Трекер проактивности</h3>
+        <p>Индекс растёт, когда ты инициируешь диалоги, быстро отвечаешь и проходишь челленджи. Высокий рейтинг = больше видимость и эксклюзив.</p>
+      </div>
+      <div class="feature-card">
+        <div class="feature-icon">🎯</div>
+        <h3>Осознанный выбор</h3>
+        <p>Перед лайком ты отвечаешь на вопрос: «Что тебя заинтересовало в этом человеке?». Свайп перестаёт быть импульсивным.</p>
       </div>
     </div>
   </section>
 
-  <!-- КАК ЭТО РАБОТАЕТ ДЛЯ НЕЁ -->
-  <section id="how">
-    <div style="display: flex; align-items: center; gap: 40px; flex-wrap: wrap;">
-      <div style="flex: 1; min-width: 280px;">
-        <div class="badge" style="margin-bottom: 16px;">🛡️ Твой цифровой фильтр</div>
-        <h2 style="font-size: 2.4rem; margin-bottom: 24px;">Мужчины, которым нужно только тело — уходят сразу</h2>
-        <p style="margin-bottom: 20px; font-size: 1.1rem;">
-          Размытое фото — это твой личный антиспам-барьер. 
-          <br><br>
-          <strong>Он не видит твои губы или фигуру. Он видит твои увлечения, твой юмор, твои ответы на глубокие вопросы.</strong>
-        </p>
-        <p>
-          Если ему неинтересно писать осмысленные сообщения 10 раз подряд, он просто пролистнёт дальше. 
-          И это прекрасно. В твоих чатах останутся только те, кто готов вкладываться.
-        </p>
-        <div style="margin-top: 32px; display: flex; gap: 16px;">
-          <div><span style="font-weight: 800; font-size: 1.8rem;">-94%</span><br>меньше харассмента</div>
-          <div><span style="font-weight: 800; font-size: 1.8rem;">100%</span><br>верификация лиц</div>
+  <!-- Ghosting prevention + депозит вежливости -->
+  <div id="ghost" class="ghost-prevention">
+    <h2 style="font-size: 2.2rem; margin-bottom: 16px;">💔 Никакого исчезновения без следа</h2>
+    <p style="font-size: 1.1rem; opacity:0.9; max-width: 80%;">Ghosting — это системная проблема. Мы вводим ответственность и заботу о чувствах другого.</p>
+    <div class="ghost-grid">
+      <div class="ghost-stat">
+        <div style="font-size: 2rem;">🏦</div>
+        <h3 style="color: white; margin: 12px 0;">Депозит вежливости</h3>
+        <p>При старте диалога оба вносят 10 баллов. Если диалог завершён конструктивно (с выбором причины), баллы возвращаются с бонусом +3. Ghosting = штраф и снижение индекса.</p>
+        <div style="margin-top: 16px; background: rgba(255,255,255,0.1); border-radius: 20px; padding: 12px;">
+          <span>📉 3 раза за месяц → скрытие профиля на 48 часов</span>
         </div>
       </div>
-      <div style="flex: 1; background: var(--bg-soft); border-radius: 48px; padding: 32px; text-align: center;">
-        <p style="font-family: 'Playfair Display'; font-size: 1.5rem; margin-bottom: 24px;">✨ Этапы раскрытия ✨</p>
-        <div style="display: flex; flex-direction: column; gap: 20px;">
-          <div style="display: flex; align-items: center; gap: 16px;">
-            <div style="width: 50px; height: 50px; background: #d4c3b7; border-radius: 20px; filter: blur(8px);"></div>
-            <div style="text-align: left;"><strong>0 сообщений</strong><br>Только силуэт и твои интересы</div>
-          </div>
-          <div style="display: flex; align-items: center; gap: 16px;">
-            <div style="width: 50px; height: 50px; background: #b48c6c; border-radius: 20px; filter: blur(4px);"></div>
-            <div style="text-align: left;"><strong>5+ сообщений</strong><br>Угадываются черты лица, улыбка</div>
-          </div>
-          <div style="display: flex; align-items: center; gap: 16px;">
-            <div style="width: 50px; height: 50px; background: #2c4c4b; border-radius: 20px; filter: blur(0px); display: flex; align-items: center; justify-content: center; color: white;">👩</div>
-            <div style="text-align: left;"><strong>12+ сообщений</strong><br>Чёткое фото (как награда за включённость)</div>
-          </div>
-        </div>
-        <p style="margin-top: 32px; font-size: 0.9rem; color: var(--primary);">
-          Проактивные девушки получают +15% к чёткости фото собеседника за каждый заданный вопрос.
-        </p>
+      <div class="ghost-stat">
+        <div style="font-size: 2rem;">🤝</div>
+        <h3 style="color: white; margin: 12px 0;">Конструктивное прощание</h3>
+        <p>Кнопка «Завершить диалог» только с выбором причины: «Разный ритм общения», «Я встретил другого человека», «Мне нужно время для себя». Собеседник получает анонимное уведомление и завершённость.</p>
+        <p style="margin-top: 12px;">🌟 За честность — бейдж «Честный» и бесплатный «Проявитель» фото.</p>
       </div>
     </div>
-  </section>
-
-  <!-- БЛОК ДЛЯ ПАРНЕЙ: Почему это выгодно мужчинам -->
-  <section id="guys">
-    <div class="for-guys">
-      <h3>🤝 Парни, это и ваша территория</h3>
-      <p style="font-size: 1.2rem; opacity: 0.9; margin-bottom: 20px;">
-        Если ты умеешь говорить, а не просто показывать фото с машиной — здесь твой оазис.
-      </p>
-      <div class="guys-grid">
-        <div class="guy-benefit">
-          <div style="font-size: 2rem; margin-bottom: 16px;">📉</div>
-          <h4 style="color: white; margin-bottom: 12px;">Конкуренция 1 к 3, а не 1 к 100</h4>
-          <p style="opacity: 0.8;">Девушки не сбегают из приложения после первого дня. Они остаются, потому что их не бомбардируют спамом.</p>
-        </div>
-        <div class="guy-benefit">
-          <div style="font-size: 2rem; margin-bottom: 16px;">💎</div>
-          <h4 style="color: white; margin-bottom: 12px;">Твоя личность — твой козырь</h4>
-          <p style="opacity: 0.8;">Здесь побеждает чувство юмора и эмпатия, а не накачанный пресс на аватарке. Ты в выигрыше.</p>
-        </div>
-        <div class="guy-benefit">
-          <div style="font-size: 2rem; margin-bottom: 16px;">🎯</div>
-          <h4 style="color: white; margin-bottom: 12px;">Нулевая толерантность к «принцессам»</h4>
-          <p style="opacity: 0.8;">Девушки здесь тоже проходят верификацию и обязаны отвечать. Мэтч без ответа 24 часа = сгорает.</p>
-        </div>
-      </div>
-      <p style="margin-top: 32px; text-align: center;">
-        <span style="background: rgba(255,255,255,0.15); padding: 8px 24px; border-radius: 40px;">Вам больше не придётся придумывать, как выделиться в ленте из 1000 фото</span>
-      </p>
+    <div style="margin-top: 24px; text-align: center; font-style: italic;">
+      «Мы не заставляем тебя общаться с теми, кто не нравится. Мы просим закрывать двери, а не убегать через окно».
     </div>
-  </section>
-
-  <!-- CTA -->
-  <div class="cta-section">
-    <h2 style="font-size: 2.8rem; margin-bottom: 24px; color: white;">Начни слышать, а не смотреть</h2>
-    <p style="margin-bottom: 32px; font-size: 1.2rem; opacity: 0.9;">Присоединяйся к закрытому тестированию. Это бесплатно и без свайпов.</p>
-    <button class="btn-primary" id="ctaBottom" style="background: white; color: var(--primary);">📬 Вступить в LuvGen →</button>
-    <p style="margin-top: 32px; font-size: 0.8rem; opacity: 0.6;">Мы против объективации. Мы за осознанные отношения.</p>
   </div>
 
-  <footer style="padding: 40px 0; text-align: center; color: #6b625c;">
-    <p>LuvGen — пространство, где внешность становится наградой за интерес, а не пропуском.</p>
-    <p style="margin-top: 16px;">© 2025 · Без дикпиков · С любовью к диалогам</p>
+  <!-- Постепенное раскрытие фото: механика, убивающая поверхностность -->
+  <section id="progressive" class="progressive-reveal">
+    <div style="display: flex; flex-wrap: wrap; gap: 40px; align-items: center;">
+      <div style="flex:1">
+        <h2 style="font-size: 2.2rem; margin-bottom: 20px;">📸 Фото открываются только к 10-му сообщению</h2>
+        <p style="font-size: 1.1rem; margin-bottom: 24px;">Твоя внешность перестаёт быть главным критерием. Сначала — мысли, юмор, ценности. Лицо — как награда за включённость.</p>
+        <ul style="list-style: none;">
+          <li style="margin-bottom: 12px;">✨ <strong>0–3 сообщения</strong> — сильное размытие, виден лишь силуэт</li>
+          <li style="margin-bottom: 12px;">✨ <strong>4–8 сообщений</strong> — угадываются черты, улыбка</li>
+          <li style="margin-bottom: 12px;">✨ <strong>9+ сообщений</strong> — полная чёткость (и это победа)</li>
+        </ul>
+        <div style="background: white; border-radius: 28px; padding: 16px; margin-top: 20px;">
+          <p style="font-weight: 600;">💡 Девушки получают +15% к чёткости фото собеседника за каждый заданный вопрос.</p>
+        </div>
+      </div>
+      <div style="flex:1">
+        <div class="steps">
+          <div class="step"><div class="blur-sample blur-0"></div><strong>Начало</strong><br>размыто 100%</div>
+          <div class="step"><div class="blur-sample blur-1"></div><strong>5 сообщений</strong><br>60% четкости</div>
+          <div class="step"><div class="blur-sample blur-2"></div><strong>9 сообщений</strong><br>90% четкости</div>
+          <div class="step"><div class="blur-sample blur-3"></div><strong>12+ сообщений</strong><br>полное фото</div>
+        </div>
+        <p style="text-align: center; margin-top: 24px;">🚫 Нет свайпов по картинке — есть диалог по душам</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Сравнение: Обычный дейтинг vs LuvGen -->
+  <div class="comparison-grid">
+    <div class="comparison-card">
+      <h3>😞 Обычные приложения</h3>
+      <ul class="comparison-list">
+        <li>❌ Бесконечный свайп (парадокс выбора)</li>
+        <li>❌ Выученная беспомощность: «алгоритм решит»</li>
+        <li>❌ Ghosting без последствий</li>
+        <li>❌ Поверхностные «привет, как дела?»</li>
+        <li>❌ Фото решает всё с первого взгляда</li>
+        <li>❌ Выгорание после 3 дней</li>
+      </ul>
+    </div>
+    <div class="comparison-card" style="border: 2px solid var(--accent);">
+      <h3>🌿 LuvGen</h3>
+      <ul class="comparison-list">
+        <li>✅ Лимит 5 профилей в день — внимание каждому</li>
+        <li>✅ Твой индекс проактивности = контроль</li>
+        <li>✅ Депозит вежливости + конструктивное прощание</li>
+        <li>✅ Обязательный первый шаг + мини-игра</li>
+        <li>✅ Постепенное раскрытие фото (глубина прежде внешности)</li>
+        <li>✅ Цифровой детокс + единый фокус (макс 5 диалогов)</li>
+      </ul>
+    </div>
+  </div>
+
+  <!-- Режим единый фокус + детокс -->
+  <div style="background: var(--bg-soft); border-radius: 48px; padding: 48px; margin: 40px 0;">
+    <div style="display: flex; flex-wrap: wrap; gap: 40px; align-items: center;">
+      <div style="flex:1">
+        <h2 style="font-size: 2rem;">🧘‍♀️ Режим «Цифровой детокс» и «Единый фокус»</h2>
+        <p style="margin-top: 16px;">После 30 минут активного поиска или 20 просмотренных профилей — приложение блокирует поиск на 2 часа. Ты не выгораешь. Одновременно можно вести не более 5 активных диалогов — это качество, а не хаос.</p>
+        <div style="margin-top: 24px;">
+          <span class="stat-number">-67%</span> снижение усталости от решений
+        </div>
+      </div>
+      <div style="flex:1; background: white; border-radius: 32px; padding: 24px; text-align: center;">
+        <div style="font-size: 2rem;">⏳</div>
+        <p><strong>Таймер до следующего профиля:</strong> 1:24:32</p>
+        <div style="height: 6px; background: #e0d6cf; border-radius: 10px; margin: 12px 0;"><div style="width: 45%; background: var(--primary); height: 6px; border-radius: 10px;"></div></div>
+        <p style="font-size:0.85rem;">Используй это время, чтобы ответить текущим собеседникам.</p>
+      </div>
+    </div>
+  </div>
+
+
+  <!-- Призыв: осознанное сообщество -->
+  <div class="cta-section">
+    <h2 style="font-size: 2.5rem; margin-bottom: 20px;">Присоединяйся к движению<br>осознанных знакомств</h2>
+    <p style="margin-bottom: 32px; font-size: 1.2rem;">Бесплатное закрытое тестирование. Без токсичности, без бесконечного скроллинга.</p>
+    <button class="btn-primary" id="ctaBottom" style="background: white; color: var(--primary);">📬 Получить приглашение</button>
+    <p style="margin-top: 32px; font-size: 0.8rem; opacity: 0.7;">LuvGen — это не просто знакомства. Это возвращение вкуса к глубине.</p>
+  </div>
+
+  <footer>
+    <p>LuvGen — верни себе контроль над своей любовью. Без выученной беспомощности, без обесценивания.</p>
+    <p style="margin-top: 16px;">© 2025 · С заботой о диалогах и психологической гигиене</p>
   </footer>
 </div>
 
 <script>
-  // Та же логика перехода в Telegram
   function redirectToTelegram() { window.open('https://t.me/Luvgen_dev', '_blank'); }
   document.querySelectorAll('#waitlistBtn, #heroCta, #ctaBottom').forEach(btn => {
     if(btn) btn.addEventListener('click', redirectToTelegram);
